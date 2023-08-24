@@ -1,2 +1,57 @@
 # sample-django-postgres
-A sample PIKU project using Django and Postgres
+A sample PIKU project using Django and Postgres.
+
+This is a sample Django project that uses the https://pypi.org/project/dj-database-url/ library to connect to any number of production Databases
+
+## Installation
+
+### Clone repo
+```
+git clone https://github.com/jfmatth/sample-django-postgres.git
+```
+### Virtual Environment
+Build the virtual environment and install dependencies
+
+```
+pipenv shell
+pipenv install
+```
+
+## Usage
+Once you have the environment installed, you can check that it's working (without DATABASE_URL) and create the local SqLite DB
+
+```
+python manage.py migrate
+```
+
+This should create a local SQLITE database called db.sqlite3 in the folder
+
+If you now define your ```DATABASE_URL``` pointing to your Postgres, MySQL, SQLServer based on the dj_database_url specs, for example:
+
+```
+export DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/NAME
+```
+
+Run ```python manage.py migrate``` again and it should create the database on (postgres in this case)
+
+
+## Running on PIKU
+
+Publish your app to Piku  
+```
+git remote add piku piku@your_server:pypostgres
+git push piku master
+```
+
+Setup your DATABASE_URL on your PIKU instance
+```
+piku config:set DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/NAME
+```
+
+Migrate the DB (when needed)
+```
+piku run -- ./manage.py migrate --no-input
+
+```
+
+At this point you should SSH into the instance and create the superuser
