@@ -1,0 +1,1 @@
+wsgi: sample.wsgi:application
