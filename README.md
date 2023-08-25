@@ -58,3 +58,14 @@ At this point you should ```piku shell``` into the instance and create the super
 Once you've done all that, you should be able to just push changes from then on out
 
 Enjoy
+
+# Notes about setup
+
+## Procfile
+The procfile has a WSGI entry for Django and a CRON for clearning expired sessions
+
+```
+wsgi: sample.wsgi:application
+cron: 0 0 * * * python manage.py clearsessions -v 3
+```
+
