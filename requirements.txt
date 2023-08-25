@@ -7,3 +7,4 @@ psycopg-binary==3.1.10
 psycopg-pool==3.1.7
 sqlparse==0.4.4 ; python_version >= '3.5'
 typing-extensions==4.7.1 ; python_version >= '3.7'
+whitenoise==6.5.0
