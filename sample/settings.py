@@ -26,11 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t_#0m9!lreb3070s(-l0#3*^ozlubrd69rexz42ri&ikt(*(7j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False or 'DEBUG' in os.environ
 
-# ALLOWED_HOSTS = []
 ALLOWED_HOSTS = [os.environ.get("NGINX_SERVER_NAME", "")]
-
 
 # Application definition
 
