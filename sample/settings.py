@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-t_#0m9!lreb3070s(-l0#3*^ozlubrd69rexz42ri&ikt(*(7j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False or 'DEBUG' in os.environ
 
-ALLOWED_HOSTS = [os.environ.get("NGINX_SERVER_NAME", "")]
+ALLOWED_HOSTS = ["*" if DEBUG else os.environ.get("NGINX_SERVER_NAME")]
 
 # Application definition
 
@@ -124,3 +124,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
