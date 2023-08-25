@@ -46,11 +46,18 @@ git push piku master
 Setup your DATABASE_URL on your PIKU instance
 ```
 piku config:set DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/NAME
+```
+Set your hostname so we can get to the site
+```
 piku config:set NGINX_SERVER_NAME=<your FQDN here>
 ```
 Migrate the DB (when needed)
 ```
 piku run -- ./manage.py migrate --no-input
+```
+Collect Static files
+```
+piku run -- ./manage.py collectstatic --no-input
 ```
 
 At this point you should ```piku shell``` into the instance and create the superuser
