@@ -48,7 +48,6 @@ Setup your DATABASE_URL on your PIKU instance
 piku config:set DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/NAME
 piku config:set NGINX_SERVER_NAME=<your FQDN here>
 ```
-
 Migrate the DB (when needed)
 ```
 piku run -- ./manage.py migrate --no-input
@@ -57,3 +56,5 @@ piku run -- ./manage.py migrate --no-input
 At this point you should ```piku shell``` into the instance and create the superuser
 
 Once you've done all that, you should be able to just push changes from then on out
+
+Enjoy
